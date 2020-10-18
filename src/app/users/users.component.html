@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>User Details</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr class="info">
+        <th></th>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-template ngFor let-user [ngForOf]="users" let-i="index">
+        <tr>
+          <td style="width: 2px">
+            <input
+              type="checkbox"
+              [(ngModel)]="user.display"
+              checked
+              data-toggle="toggle"
+              (click)="discardRow(i)"
+            />
+          </td>
+          <td>
+            <span *ngIf="user.display">{{ user.Name }}</span>
+          </td>
+          <td>
+            <span *ngIf="user.display">{{ user.age }}</span>
+          </td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+</div>
